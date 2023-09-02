@@ -291,16 +291,17 @@ while True:
                 torch.save(checkpoint, os.path.join(out_dir, 'ckpt.pt'))
 
                 if output_sample:
-                    sample = generate_sample(
+                    generator = generate_sample(
                         model=raw_model,
                         max_new_tokens=250,
                         device=device,
                         meta_path=os.path.join("data", checkpoint["config"]["dataset"], "meta.pkl"),
                     )
-                    print("sample:", sample.strip().replace("\n", " ")[:50] + "...")
+                    sample = "".join(generator).strip()
+                    print("sample:", sample.replace("\n", " ")[:50] + "...")
 
                     if wandb_log and sample:
-                        sample_table.add_data(iter_num, sample.strip())
+                        sample_table.add_data(iter_num, sample)
 
     if iter_num == 0 and eval_only:
         break
