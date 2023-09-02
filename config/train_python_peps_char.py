@@ -13,7 +13,7 @@ wandb_log = False  # override via command line if you like
 wandb_project = "python-peps"
 wandb_run_name = None
 
-dataset = "python_peps"
+dataset = "python_peps_char"
 gradient_accumulation_steps = 1
 batch_size = 64
 block_size = 256  # context of up to 256 previous characters
