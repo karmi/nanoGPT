@@ -1,16 +1,16 @@
 # train a miniature character-level model based on Python PEPs
 # https://peps.python.org/pep-0001/
 
-out_dir = "out-python-peps"
-eval_interval = 250  # keep frequent because we'll overfit
-eval_iters = 200
-log_interval = 10  # don't print too too often
+out_dir = "out-python-peps-char"
+eval_interval = 100
+eval_iters = 20
+log_interval = 1
 
 # we expect to overfit on this small dataset, so only save when val improves
 always_save_checkpoint = False
 
 wandb_log = False  # override via command line if you like
-wandb_project = "python-peps"
+wandb_project = "python-peps-char"
 wandb_run_name = None
 
 dataset = "python_peps_char"
